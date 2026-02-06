@@ -5,15 +5,16 @@
     box-sizing: border-box;
 }
 
-/* Variables */
+/* Variables - Logo'dan Alınan Renkler */
 :root {
-    --gold: #d4a832;
-    --black: #111111;
-    --dark: #1a1a1a;
-    --white: #ffffff;
-    --off-white: #f7f5f0;
-    --gray: #666666;
-    --light-gray: #999999;
+    --forest-green: #2d4232;
+    --dark-green: #1f2e25;
+    --sage-green: #3d5241;
+    --beige: #e8dcc4;
+    --gold: #c9a961;
+    --cream: #f5f1e8;
+    --text-dark: #2a3a2f;
+    --text-muted: #6b7b70;
 }
 
 /* Base */
@@ -22,9 +23,9 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--white);
-    color: var(--black);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: var(--cream);
+    color: var(--text-dark);
     line-height: 1.6;
 }
 
@@ -38,14 +39,14 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: var(--white);
-    border-bottom: 1px solid #eee;
+    background: var(--forest-green);
+    border-bottom: 2px solid var(--gold);
 }
 
 nav {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1.2rem 2rem;
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,23 +57,13 @@ nav {
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
     text-decoration: none;
 }
 
-.logo-icon {
-    font-size: 1.4rem;
-}
-
-.logo-text {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--black);
-    letter-spacing: -0.5px;
-}
-
-.logo-de {
-    color: var(--gold);
+.logo-image {
+    height: 50px;
+    width: auto;
+    display: block;
 }
 
 /* Nav Menu */
@@ -83,33 +74,37 @@ nav {
 }
 
 .nav-menu a {
-    color: var(--gray);
+    color: var(--beige);
     text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
     transition: color 0.3s;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .nav-menu a:hover {
-    color: var(--black);
+    color: var(--gold);
 }
 
 /* Nav CTA Button */
 .nav-cta {
-    background: var(--black);
-    color: var(--white);
-    padding: 0.7rem 1.4rem;
-    border-radius: 6px;
+    background: var(--gold);
+    color: var(--forest-green);
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
     text-decoration: none;
     font-size: 0.85rem;
-    font-weight: 500;
-    transition: background 0.3s;
+    font-weight: 600;
+    transition: all 0.3s;
     white-space: nowrap;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 0.5px;
 }
 
 .nav-cta:hover {
-    background: var(--dark);
+    background: var(--beige);
+    transform: translateY(-2px);
 }
 
 /* ======================== */
@@ -121,34 +116,58 @@ nav {
     min-height: 90vh;
     display: flex;
     align-items: center;
-    background: var(--white);
+    background: linear-gradient(135deg, var(--forest-green) 0%, var(--dark-green) 100%);
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(201, 169, 97, 0.03) 2px,
+            rgba(201, 169, 97, 0.03) 4px
+        );
 }
 
 .hero-content {
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
     font-size: clamp(3rem, 7vw, 6.5rem);
-    font-weight: 700;
-    line-height: 1.05;
-    color: var(--black);
-    letter-spacing: -2px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--beige);
+    letter-spacing: -1px;
+    font-family: 'Georgia', serif;
 }
 
 .highlight {
     color: var(--gold);
     font-style: italic;
+    font-weight: 400;
 }
 
 .hero-text {
     margin-top: 2rem;
-    max-width: 380px;
-    color: var(--gray);
+    max-width: 420px;
+    color: var(--beige);
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.8;
+    opacity: 0.9;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .hero-buttons {
@@ -164,36 +183,43 @@ nav {
 
 .btn-primary {
     display: inline-block;
-    background: var(--black);
-    color: var(--white);
-    padding: 0.9rem 2rem;
-    border-radius: 6px;
+    background: var(--gold);
+    color: var(--forest-green);
+    padding: 1rem 2.2rem;
+    border-radius: 4px;
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 500;
-    transition: background 0.3s;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 0.5px;
 }
 
 .btn-primary:hover {
-    background: var(--dark);
+    background: var(--beige);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
 }
 
 .btn-secondary {
     display: inline-block;
     background: transparent;
-    color: var(--black);
-    padding: 0.9rem 2rem;
-    border-radius: 6px;
-    border: 1.5px solid var(--black);
+    color: var(--beige);
+    padding: 1rem 2.2rem;
+    border-radius: 4px;
+    border: 1.5px solid var(--beige);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
     transition: all 0.3s;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 0.5px;
 }
 
 .btn-secondary:hover {
-    background: var(--black);
-    color: var(--white);
+    background: var(--beige);
+    color: var(--forest-green);
+    transform: translateY(-2px);
 }
 
 /* ======================== */
@@ -201,8 +227,8 @@ nav {
 /* ======================== */
 
 .features {
-    background: var(--off-white);
-    padding: 5rem 2rem;
+    background: var(--cream);
+    padding: 6rem 2rem;
 }
 
 .features-grid {
@@ -214,26 +240,38 @@ nav {
 }
 
 .feature-card {
-    padding: 1rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid rgba(45, 66, 50, 0.1);
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(45, 66, 50, 0.12);
+    border-color: var(--gold);
 }
 
 .feature-icon {
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     display: block;
 }
 
 .feature-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 0.8rem;
-    color: var(--black);
+    margin-bottom: 1rem;
+    color: var(--forest-green);
+    font-family: 'Georgia', serif;
 }
 
 .feature-card p {
-    color: var(--gray);
-    font-size: 0.92rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
     line-height: 1.7;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 /* ======================== */
@@ -241,27 +279,29 @@ nav {
 /* ======================== */
 
 .ablauf {
-    padding: 5rem 2rem;
-    background: var(--white);
+    padding: 6rem 2rem;
+    background: white;
 }
 
 .ablauf-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
 
 .ablauf h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--black);
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--forest-green);
     margin-bottom: 0.5rem;
+    font-family: 'Georgia', serif;
 }
 
 .ablauf-subtitle {
-    color: var(--light-gray);
-    font-size: 1rem;
-    margin-bottom: 3rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 4rem;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .ablauf-steps {
@@ -274,35 +314,41 @@ nav {
 .ablauf-step {
     display: flex;
     align-items: flex-start;
-    gap: 2rem;
-    padding: 1.5rem;
-    border-radius: 10px;
-    transition: background 0.3s;
+    gap: 2.5rem;
+    padding: 2rem;
+    border-radius: 8px;
+    background: var(--cream);
+    border: 1px solid rgba(45, 66, 50, 0.1);
+    transition: all 0.3s;
 }
 
 .ablauf-step:hover {
-    background: var(--off-white);
+    border-color: var(--gold);
+    transform: translateX(8px);
 }
 
 .step-number {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 300;
     color: var(--gold);
-    min-width: 60px;
+    min-width: 70px;
     text-align: center;
+    font-family: 'Georgia', serif;
 }
 
 .step-info h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    color: var(--black);
-    margin-bottom: 0.4rem;
+    color: var(--forest-green);
+    margin-bottom: 0.5rem;
+    font-family: 'Georgia', serif;
 }
 
 .step-info p {
-    color: var(--gray);
-    font-size: 0.92rem;
-    line-height: 1.6;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 /* ======================== */
@@ -310,28 +356,51 @@ nav {
 /* ======================== */
 
 .cta-section {
-    background: var(--dark);
-    padding: 5rem 2rem;
+    background: linear-gradient(135deg, var(--forest-green) 0%, var(--dark-green) 100%);
+    padding: 6rem 2rem;
+    position: relative;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(201, 169, 97, 0.03) 2px,
+            rgba(201, 169, 97, 0.03) 4px
+        );
 }
 
 .cta-content {
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .cta-content h2 {
-    color: var(--white);
-    font-size: 2.2rem;
-    font-weight: 700;
+    color: var(--beige);
+    font-size: 2.5rem;
+    font-weight: 400;
     margin-bottom: 1rem;
+    font-family: 'Georgia', serif;
 }
 
 .cta-content p {
-    color: var(--light-gray);
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
+    color: var(--beige);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .cta-form {
@@ -343,38 +412,45 @@ nav {
 
 .cta-form input {
     flex: 1;
-    padding: 1rem 1.2rem;
+    padding: 1.1rem 1.3rem;
     border: none;
-    border-radius: 6px 0 0 6px;
-    background: #2a2a2a;
-    color: var(--white);
+    border-radius: 4px 0 0 4px;
+    background: rgba(232, 220, 196, 0.15);
+    color: var(--beige);
     font-size: 0.95rem;
     outline: none;
+    font-family: 'Segoe UI', sans-serif;
+    border: 2px solid transparent;
+    transition: all 0.3s;
 }
 
 .cta-form input::placeholder {
-    color: var(--light-gray);
+    color: rgba(232, 220, 196, 0.6);
 }
 
 .cta-form input:focus {
-    background: #333;
+    background: rgba(232, 220, 196, 0.2);
+    border-color: var(--gold);
 }
 
 .cta-btn {
-    padding: 1rem 1.8rem;
+    padding: 1.1rem 2rem;
     background: var(--gold);
-    color: var(--black);
+    color: var(--forest-green);
     border: none;
-    border-radius: 0 6px 6px 0;
+    border-radius: 0 4px 4px 0;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s;
     white-space: nowrap;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 0.5px;
 }
 
 .cta-btn:hover {
-    background: #c49b28;
+    background: var(--beige);
+    transform: translateY(-2px);
 }
 
 /* ======================== */
@@ -382,8 +458,9 @@ nav {
 /* ======================== */
 
 footer {
-    background: var(--black);
-    padding: 2.5rem 2rem;
+    background: var(--forest-green);
+    padding: 3rem 2rem;
+    border-top: 2px solid var(--gold);
 }
 
 .footer-content {
@@ -392,74 +469,85 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
 }
 
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
 }
 
-.footer-logo-text {
-    color: var(--white);
-    font-size: 1.1rem;
-    font-weight: 600;
+.footer-logo-image {
+    height: 40px;
+    width: auto;
+    display: block;
+    opacity: 0.9;
 }
 
 .footer-copy {
-    color: var(--light-gray);
+    color: var(--beige);
     font-size: 0.85rem;
+    opacity: 0.8;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .footer-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .footer-links a {
-    color: var(--light-gray);
+    color: var(--beige);
     text-decoration: none;
     font-size: 0.85rem;
     transition: color 0.3s;
+    font-family: 'Segoe UI', sans-serif;
+    opacity: 0.8;
 }
 
 .footer-links a:hover {
-    color: var(--white);
+    color: var(--gold);
+    opacity: 1;
 }
 
 /* ======================== */
 /* Legal Pages              */
-/* (Impressum, Datenschutz) */
 /* ======================== */
 
 .legal-section {
     padding: 8rem 2rem 4rem;
     min-height: 100vh;
-    background: var(--white);
+    background: var(--cream);
 }
 
 .legal-content {
     max-width: 780px;
     margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(45, 66, 50, 0.08);
 }
 
 .legal-header {
     margin-bottom: 3.5rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 2px solid var(--gold);
 }
 
 .legal-header h1 {
     font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--black);
+    font-weight: 400;
+    color: var(--forest-green);
     letter-spacing: -1px;
     margin-bottom: 0.5rem;
+    font-family: 'Georgia', serif;
 }
 
 .legal-subtitle {
-    color: var(--light-gray);
+    color: var(--text-muted);
     font-size: 0.95rem;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .legal-block {
@@ -467,56 +555,59 @@ footer {
 }
 
 .legal-block h2 {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    color: var(--black);
-    margin-bottom: 0.8rem;
+    color: var(--forest-green);
+    margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--gold);
     display: inline-block;
+    font-family: 'Georgia', serif;
 }
 
 .legal-block h3 {
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--dark);
+    color: var(--sage-green);
     margin-bottom: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    font-family: 'Georgia', serif;
 }
 
 .legal-block p {
-    color: var(--gray);
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.9;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* Legal Box (Hosting info vb.) */
 .legal-box {
-    background: var(--off-white);
+    background: var(--cream);
     border-left: 3px solid var(--gold);
-    padding: 1.2rem 1.5rem;
+    padding: 1.5rem;
     border-radius: 0 8px 8px 0;
     margin-top: 1rem;
-    color: var(--gray);
+    color: var(--text-muted);
     font-size: 0.92rem;
     line-height: 1.8;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* Legal List */
 .legal-list {
     list-style: none;
     padding: 0;
-    margin-top: 0.8rem;
+    margin-top: 1rem;
 }
 
 .legal-list li {
-    color: var(--gray);
+    color: var(--text-muted);
     font-size: 0.95rem;
-    padding: 0.6rem 0;
-    padding-left: 1.5rem;
+    padding: 0.8rem 0;
+    padding-left: 2rem;
     position: relative;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid rgba(45, 66, 50, 0.1);
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .legal-list li:last-child {
@@ -529,27 +620,29 @@ footer {
     left: 0;
     color: var(--gold);
     font-weight: 700;
+    font-size: 1.1rem;
 }
 
-/* Back Link */
 .back-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--black);
+    color: var(--forest-green);
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
-    margin-top: 2rem;
-    padding: 0.8rem 1.5rem;
-    border: 1.5px solid var(--black);
-    border-radius: 6px;
+    margin-top: 3rem;
+    padding: 0.9rem 1.8rem;
+    border: 2px solid var(--forest-green);
+    border-radius: 4px;
     transition: all 0.3s;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .back-link:hover {
-    background: var(--black);
-    color: var(--white);
+    background: var(--forest-green);
+    color: var(--beige);
+    transform: translateY(-2px);
 }
 
 /* ======================== */
@@ -558,19 +651,25 @@ footer {
 
 @media (max-width: 768px) {
 
-    /* Nav */
     nav {
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
         gap: 1rem;
+        padding: 1rem 1.5rem;
     }
 
     .nav-menu {
         gap: 1.5rem;
+        order: 3;
+        width: 100%;
+        justify-content: center;
     }
 
-    /* Hero */
+    .logo-image {
+        height: 40px;
+    }
+
     .hero {
         padding: 8rem 1.5rem 4rem;
         min-height: auto;
@@ -578,43 +677,51 @@ footer {
 
     .hero h1 {
         font-size: clamp(2.2rem, 10vw, 3.5rem);
-        letter-spacing: -1px;
+        letter-spacing: -0.5px;
     }
 
-    /* Features */
     .features-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
     }
 
-    /* Ablauf */
     .ablauf-step {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 1rem;
     }
 
-    /* CTA Form */
+    .step-number {
+        min-width: 100%;
+        text-align: left;
+    }
+
     .cta-form {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 1rem;
     }
 
     .cta-form input {
-        border-radius: 6px;
+        border-radius: 4px;
     }
 
     .cta-btn {
-        border-radius: 6px;
+        border-radius: 4px;
     }
 
-    /* Footer */
     .footer-content {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
         text-align: center;
     }
 
-    /* Legal Pages */
+    .footer-logo-image {
+        height: 35px;
+    }
+
+    .legal-content {
+        padding: 2rem 1.5rem;
+    }
+
     .legal-section {
         padding: 6rem 1.5rem 3rem;
     }
